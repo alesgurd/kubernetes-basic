@@ -51,20 +51,22 @@ Desplegaremos el administrador y el microservicio de carga de documentos, junto 
     docker push nexus.chattigo.com:49443/guiadmin:<su nombre>
 
 * Workshop
+- Despleguemos el secreto para las credenciales al nexus:
+    kubectl create secret docker-registry nexus --docker-server=https://nexus.chattigo.com:49443 --docker-username=k8s-user --docker-password=n3xusr3p0! --docker-email=mroldan@chattigo.com -n <su nombre>
 - En el directorio config encontraran los archivos de configuracion para los despliegues a realizar. Estos tienen placeholders, los cuales tendremos que modificar.
 - Luego de realizar las modificaciones, crearemos un namespace con el comando: 
     kubectl create namespace <su nombre>
 - Ahora, pasemos a aplicar la configuracion del administrador. Dentro del directorio config esta el archivo de configuracion, este cuenta con la especificacion del despliegue y el servicio para exponerlo.
-    kubectl -n <su nombre> apply -f guiadministrador.yml
+    kubectl -n <su nombre> apply -f guiadmin.yml
+
+* Workshop
 - Esto habra creado un pod y un servicio, para listar los pods y servicios:
     kubectl -n <su nombre> get pods
     kubectl -n <su nombre> get services
-
-* Workshop
-- Despleguemos el secreto de nuestros certificados, para asegurar nuestro despliegue.
+- Despleguemos el secreto de nuestro certificado, creara el secreto TLS para nuestro despliegue.
     kubectl -n <su nombre> apply -f tls.yml
 - Ahora pasemos a exponerlo mediante una regla ingress. Para esto necesito que modifiquemos el placeholder que les mostrare en pantalla con su nombre.
-    kubectl -n <su nombre> apply -f guiadministrador-ingress.yml
-- Ahora podremos acceder al sitio mediante "https://kops.chattigo.com/<su nombre>".
+    kubectl -n <su nombre> apply -f guiadmin-ingress.yml
+- Ahora podremos acceder al sitio mediante "https://kops-dev.chattigo.com/<su nombre>"/.
 
 * Dudas | Comentarios
