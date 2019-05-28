@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    name: guiadmin-<sunombre>
+spec:
+    rules:
+      - host: kops-dev.chattigo.com
+        http:
+          paths:
+            - path: /<SUNOMBRE>/(.*)
+              backend:
+                serviceName: guiadmin-cip
+                servicePort: 443
+    tls:
+      - hosts:
+          - kops-dev.chattigo.com
+        secretName: ca-secret
