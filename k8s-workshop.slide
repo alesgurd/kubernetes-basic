@@ -32,7 +32,9 @@ Al trabajar con Kubernetes pasamos a traves de un cambio de paradigma, ya que de
 - ReplicaSet: Recurso de Kubernetes que se encarga de mantener el numero minimo de instancias de un despliegue particular.
 - DaemonSet: Despliegue en el cual Kubernetes se encarga de orquestar al menos una instancia por nodo.
 - Deployment: Tipo de despliegue mas utilizado, es una abstraccion sobre los pods y ReplicaSets, en un deployment estan definidos valores relativos a los pods y numero de replicas.
-- Service: Dado que la naturaleza efimera de los pods, nos encontramos con la limitante de la comunicacion entre cada uno de estos pequeños componentes. Los servicios nos abstraen de este problema, facilitando la comunicacion entre ellos mediante la agrupacion logica de pods detras de un unico nombre.
+- Service: Dado que la naturaleza efimera de los pods, nos encontramos con el problema de identificarlos. Los servicios nos abstraen de este problema, facilitando la comunicacion entre ellos mediante la agrupacion logica de pods detras de un unico nombre.
+
+* Conceptos basicos
 - Ingress: Conjunto de reglas que permiten el trafico entrante hacia servicios internos del cluster.
 
 * Pasando a la practica...
