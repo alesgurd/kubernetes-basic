@@ -39,7 +39,7 @@ Al trabajar con Kubernetes pasamos a traves de un cambio de paradigma, ya que de
 
 * Workshop
 
-Desplegaremos el administrador y el microservicio de carga de documentos, junto con el microservicio de integracion para bases de datos.
+Desplegaremos el administrador, junto con su servicio y una regla ingress para exponerlo al exterior.
 
 * Workshop
 - Primero que nada, necesitamos conectarnos al registro Docker. Esto lo podemos hacer mediante el comando: 
